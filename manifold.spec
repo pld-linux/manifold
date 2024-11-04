@@ -1,7 +1,7 @@
 # This is what openscad@master needs
 %define	hash	22c66051dfdbcefa2012e30dd12c9b5a20f89a01
-%define	snap	%(echo %{hash} | cut -c 1-7)
-Summary:	Aeometry library dedicated to creating and operating on manifold triangle meshes
+%define	snap	22c6605
+Summary:	Geometry library dedicated to creating and operating on manifold triangle meshes
 Name:		manifold
 Version:	2.5.1
 Release:	1
