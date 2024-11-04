@@ -46,7 +46,8 @@ Pliki nagłówkowe biblioteki %{name}.
 mkdir -p build
 cd build
 %cmake ../ \
-	-DMANIFOLD_PAR=TBB
+	-DMANIFOLD_PAR=TBB \
+	-DMANIFOLD_TEST=OFF
 
 %{__make}
 
