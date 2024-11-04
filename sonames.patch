@@ -1,0 +1,49 @@
+--- manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/src/cross_section/CMakeLists.txt~	2024-09-16 06:35:55.000000000 +0200
++++ manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/src/cross_section/CMakeLists.txt	2024-11-04 23:58:20.163463086 +0100
+@@ -29,6 +29,9 @@
+         PRIVATE Clipper2)
+ endif()
+ 
++set_property(TARGET cross_section PROPERTY VERSION "${MANIFOLD_VERSION}")
++set_property(TARGET cross_section PROPERTY SOVERSION 2)
++
+ target_compile_options(${PROJECT_NAME} PRIVATE ${MANIFOLD_FLAGS})
+ target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+ 
+--- manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/src/polygon/CMakeLists.txt~	2024-09-16 06:35:55.000000000 +0200
++++ manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/src/polygon/CMakeLists.txt	2024-11-04 23:58:56.379879678 +0100
+@@ -24,6 +24,9 @@
+     PRIVATE $<BUILD_INTERFACE:collider>
+ )
+ 
++set_property(TARGET polygon PROPERTY VERSION "${MANIFOLD_VERSION}")
++set_property(TARGET polygon PROPERTY SOVERSION 2)
++
+ target_compile_options(${PROJECT_NAME} PRIVATE ${MANIFOLD_FLAGS})
+ target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+ 
+--- manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/CMakeLists.txt~	2024-11-04 23:53:54.000000000 +0100
++++ manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/CMakeLists.txt	2024-11-05 00:00:52.049660626 +0100
+@@ -17,6 +17,11 @@
+ 
+ set(CMAKE_VERBOSE_MAKEFILE ON)
+ 
++set(MANIFOLD_VERSION_MAJOR 2)
++set(MANIFOLD_VERSION_MINOR 5)
++set(MANIFOLD_VERSION_PATCH 1)
++set(MANIFOLD_VERSION "${MANIFOLD_VERSION_MAJOR}.${MANIFOLD_VERSION_MINOR}.${MANIFOLD_VERSION_PATCH}")
++
+ if(EMSCRIPTEN)
+   set(JSBIND_DEFAULT ON)
+ else()
+@@ -148,10 +153,6 @@
+ 
+ # installation related
+ 
+-set(MANIFOLD_VERSION_MAJOR 2)
+-set(MANIFOLD_VERSION_MINOR 5)
+-set(MANIFOLD_VERSION_PATCH 1)
+-set(MANIFOLD_VERSION "${MANIFOLD_VERSION_MAJOR}.${MANIFOLD_VERSION_MINOR}.${MANIFOLD_VERSION_PATCH}")
+ set_property(TARGET manifold PROPERTY VERSION "${MANIFOLD_VERSION}")
+ set_property(TARGET manifold PROPERTY SOVERSION 2)
+ 

@@ -1,0 +1,18 @@
+--- manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/CMakeLists.txt~	2024-11-04 23:35:23.000000000 +0100
++++ manifold-22c66051dfdbcefa2012e30dd12c9b5a20f89a01/CMakeLists.txt	2024-11-04 23:36:42.051314751 +0100
+@@ -162,13 +162,13 @@
+   VERSION ${MANIFOLD_VERSION}
+   COMPATIBILITY SameMajorVersion
+ )
+-install(EXPORT manifoldTargets DESTINATION ${CMAKE_INSTALL_DATADIR}/manifold)
++install(EXPORT manifoldTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/manifold)
+ configure_file(manifoldConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/manifoldConfig.cmake @ONLY)
+ install(FILES
+   ${CMAKE_CURRENT_SOURCE_DIR}/manifoldDeps.cmake
+   ${CMAKE_CURRENT_BINARY_DIR}/cmake/manifoldConfigVersion.cmake
+   ${CMAKE_CURRENT_BINARY_DIR}/manifoldConfig.cmake
+-  DESTINATION ${CMAKE_INSTALL_DATADIR}/manifold
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/manifold
+ )
+ 
+ if(MANIFOLD_CROSS_SECTION)

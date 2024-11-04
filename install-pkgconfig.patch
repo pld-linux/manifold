@@ -1,0 +1,22 @@
+From fa6a6325456f89228e27cdd3e1bae574733c5c33 Mon Sep 17 00:00:00 2001
+From: Chris Mayo <aklhfex@gmail.com>
+Date: Mon, 23 Sep 2024 15:53:28 +0100
+Subject: [PATCH] Install manifold.pc under CMAKE_INSTALL_LIBDIR (#946)
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 048700e96..f551322d0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -176,7 +176,7 @@ if(MANIFOLD_CROSS_SECTION)
+ endif()
+ configure_file(manifold.pc.in ${CMAKE_CURRENT_BINARY_DIR}/manifold.pc @ONLY)
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifold.pc
+-  DESTINATION lib/pkgconfig)
++  DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+ 
+ endif()
+ 
