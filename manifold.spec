@@ -4,7 +4,7 @@
 Summary:	Geometry library dedicated to creating and operating on manifold triangle meshes
 Name:		manifold
 Version:	2.5.1
-Release:	1.%{snap}.1
+Release:	1.%{snap}.2
 License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/elalish/manifold/archive/%{snap}/%{name}-%{version}-%{snap}.tar.gz
@@ -16,6 +16,8 @@ URL:		https://github.com/elalish/manifold
 BuildRequires:	Clipper2-devel
 BuildRequires:	cmake
 BuildRequires:	tbb-devel
+# Library may have new symbols without soname change
+%requires_eq	tbb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
