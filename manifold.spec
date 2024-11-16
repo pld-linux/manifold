@@ -2,6 +2,7 @@
 %define	hash	22c66051dfdbcefa2012e30dd12c9b5a20f89a01
 %define	snap	22c6605
 Summary:	Geometry library dedicated to creating and operating on manifold triangle meshes
+Summary(pl.UTF-8):	Biblioteka geometryczna do tworzenia i operacji na siatkach trójkątów rozmaitości
 Name:		manifold
 Version:	2.5.1
 Release:	1.%{snap}.2
@@ -25,6 +26,12 @@ Manifold is a geometry library dedicated to creating and operating on
 manifold triangle meshes. A manifold mesh is a mesh that represents a
 solid object, and so is very important in manufacturing, CAD,
 structural analysis, etc.
+
+%description -l pl.UTF-8
+Manifold to bibliotek geometryczna przeznaczona do tworzenia oraz
+operacji na siatkach trójkątów rozmaitości geometrycznych. Siatka
+rozmaitości to siatka reprezentująca bryłę, przez co jest istotna w
+dziedzinach produkcji, CAD, analizy strukturalnej itp.
 
 %package devel
 Summary:	Header files for %{name} library
