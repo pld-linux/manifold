@@ -88,14 +88,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libcross_section.so.2
 %attr(755,root,root) %{_libdir}/libpolygon.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libpolygon.so.2
+# C bindings
+%attr(755,root,root) %{_libdir}/libmanifoldc.so
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libmanifold.so
 %attr(755,root,root) %{_libdir}/libcross_section.so
 %attr(755,root,root) %{_libdir}/libpolygon.so
-# C bindings
-%attr(755,root,root) %{_libdir}/libmanifoldc.so
 %{_includedir}/manifold
 %{_libdir}/cmake/manifold
 %{_pkgconfigdir}/manifold.pc
