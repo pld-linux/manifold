@@ -15,7 +15,11 @@ Patch1:		install-cmake.patch
 Patch2:		sonames.patch
 URL:		https://github.com/elalish/manifold
 BuildRequires:	Clipper2-devel
-BuildRequires:	cmake
+BuildRequires:	GLM-devel
+BuildRequires:	cmake >= 3.18
+# C++17
+BuildRequires:	libstdc++-devel >= 6:7
+BuildRequires:	pkgconfig
 BuildRequires:	tbb-devel
 # Library may have new symbols without soname change
 %requires_eq	tbb
@@ -38,6 +42,11 @@ Summary:	Header files for %{name} library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki %{name}
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Clipper2-devel
+Requires:	GLM-devel
+Requires:	libstdc++-devel >= 6:7
+Requires:	pkgconfig
+Requires:	tbb-devel
 
 %description devel
 Header files for %{name} library.
@@ -52,13 +61,11 @@ Pliki nagłówkowe biblioteki %{name}.
 %patch2 -p1
 
 %build
-mkdir -p build
-cd build
-%cmake ../ \
+%cmake -B build \
 	-DMANIFOLD_PAR=TBB \
 	-DMANIFOLD_TEST=OFF
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
