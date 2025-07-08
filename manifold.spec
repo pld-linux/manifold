@@ -5,7 +5,7 @@ Summary:	Geometry library dedicated to creating and operating on manifold triang
 Summary(pl.UTF-8):	Biblioteka geometryczna do tworzenia i operacji na siatkach trójkątów rozmaitości
 Name:		manifold
 Version:	2.5.1
-%define	rel	4
+%define	rel	5
 Release:	1.%{snap}.%{rel}
 License:	Apache v2.0
 Group:		Libraries
