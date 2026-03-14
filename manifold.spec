@@ -1,19 +1,12 @@
-# This is what openscad@master needs
-%define	hash	22c66051dfdbcefa2012e30dd12c9b5a20f89a01
-%define	snap	22c6605
 Summary:	Geometry library dedicated to creating and operating on manifold triangle meshes
 Summary(pl.UTF-8):	Biblioteka geometryczna do tworzenia i operacji na siatkach trójkątów rozmaitości
 Name:		manifold
-Version:	2.5.1
-%define	rel	6
-Release:	1.%{snap}.%{rel}
+Version:	3.4.0
+Release:	1
 License:	Apache v2.0
 Group:		Libraries
-Source0:	https://github.com/elalish/manifold/archive/%{snap}/%{name}-%{version}-%{snap}.tar.gz
-# Source0-md5:	f88f9a9314a92a6c3fb71c6fc242ae64
-Patch0:		install-pkgconfig.patch
-Patch1:		install-cmake.patch
-Patch2:		sonames.patch
+Source0:	https://github.com/elalish/manifold/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	e065fa7ff7eff5193e30775fc5d976cb
 URL:		https://github.com/elalish/manifold
 BuildRequires:	Clipper2-devel
 BuildRequires:	GLM-devel
@@ -56,10 +49,7 @@ Header files for %{name} library.
 Pliki nagłówkowe biblioteki %{name}.
 
 %prep
-%setup -q -n %{name}-%{hash}
-%patch -P0 -p1
-%patch -P1 -p1
-%patch -P2 -p1
+%setup -q
 
 %build
 %cmake -B build \
@@ -83,20 +73,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS LICENSE README.md
-%attr(755,root,root) %{_libdir}/libmanifold.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmanifold.so.2
-%attr(755,root,root) %{_libdir}/libcross_section.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcross_section.so.2
-%attr(755,root,root) %{_libdir}/libpolygon.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libpolygon.so.2
+%{_libdir}/libmanifold.so.*.*.*
+%ghost %{_libdir}/libmanifold.so.3
 # C bindings
-%attr(755,root,root) %{_libdir}/libmanifoldc.so
+%{_libdir}/libmanifoldc.so.*.*.*
+%ghost %{_libdir}/libmanifoldc.so.3
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libmanifold.so
-%attr(755,root,root) %{_libdir}/libcross_section.so
-%attr(755,root,root) %{_libdir}/libpolygon.so
+%{_libdir}/libmanifold.so
+%{_libdir}/libmanifoldc.so
 %{_includedir}/manifold
 %{_libdir}/cmake/manifold
 %{_pkgconfigdir}/manifold.pc
