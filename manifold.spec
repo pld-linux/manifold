@@ -2,7 +2,7 @@ Summary:	Geometry library dedicated to creating and operating on manifold triang
 Summary(pl.UTF-8):	Biblioteka geometryczna do tworzenia i operacji na siatkach trójkątów rozmaitości
 Name:		manifold
 Version:	3.4.0
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries
 Source0:	https://github.com/elalish/manifold/archive/v%{version}/%{name}-%{version}.tar.gz
