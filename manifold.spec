@@ -19,8 +19,8 @@ BuildRequires:	cmake >= 3.18
 BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	pkgconfig
 %if %{with python}
-BuildRequires:	python3-devel >= 1:3.2
-BuildRequires:	python3-nanobind
+BuildRequires:	python3-devel >= 1:3.11
+BuildRequires:	python3-nanobind >= 2.1.0
 %endif
 BuildRequires:	tbb-devel
 # Library may have new symbols without soname change
@@ -111,6 +111,6 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python}
 %files -n python3-manifold
 %defattr(644,root,root,755)
-%{py3_sitedir}/manifold3d.cpython-313-i386-linux-gnu.so
+%{py3_sitedir}/manifold3d.cpython-*.so
 %{py3_sitedir}/manifold3d.pyi
 %endif
